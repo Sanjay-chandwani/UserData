@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Persons</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+  <header class="header">
+    <a href="#" id="addUserLink">Add User</a>
+    <a href="#" id="showUsersLink">Show Users</a>
+  </header>
+  
+  
+  <div class="container" id="contentContainer">
+    <div class="form-container">
+      <h2>Add Person</h2>
+      <form id="personForm">
+        <input type="text" id="firstName" placeholder="First Name">
+        <span class="error" id="firstNameError"></span>
+        <input type="text" id="lastName" placeholder="Last Name">
+        <span class="error" id="lastNameError"></span>
+        <input type="text" id="dob" placeholder="Date of Birth (DD-MM-YYYY)">
+        <span class="error" id="dobError"></span>
+        <input type="email" id="email" placeholder="Email">
+        <span class="error" id="emailError"></span>
+        <input type="tel" id="mobile" placeholder="Mobile Number">
+        <span class="error" id="mobileError"></span>
+        <input type="text" id="city" placeholder="City">
+        <span class="error" id="cityError"></span>
+        <input type="text" id="pincode" placeholder="Pincode/Zipcode">
+        <span class="error" id="pincodeError"></span>
+        <button type="submit">Add</button>
+      </form>
+    </div>
+    
+    <div class="card-container" id="cardContainer"></div>
+    
+   <!-- ...existing code... -->
+
+<div class="table-container">
+    <select id="sortSelect" class="filters">
+      <option value="name">Sort by Name (Ascending)</option>
+      <option value="age">Sort by Age (Ascending)</option>
+    </select>
+    <table id="personsTable" class="table">
+      <tbody id="personsList"></tbody>
+    </table>
+  </div>
+  
+  <!-- ...existing code... -->
+  
+  </div>
+
+<script src="script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
+ 
+ 
+ <script>
+    $(document).ready(function() {
+      $('#dob').inputmask('99/99/9999');
+      $('#mobile').inputmask('(999)-999-9999');
+
+    });
+</script>
+
+</body>
+</html>
