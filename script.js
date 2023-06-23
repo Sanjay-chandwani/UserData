@@ -210,30 +210,48 @@ document.getElementById("personForm").addEventListener("submit", function(event)
 
 
 function sortPersonsData(sortOption) {
-    let sortedData = [...personsData]; // 
+  let sortedData = [...personsData];
   
-    if (sortOption === 'name') {
-      sortedData.sort((a, b) => a.firstName.localeCompare(b.firstName));
-    } else if (sortOption === 'age') {
-      sortedData.sort((a, b) => {
-        const dateA = new Date(a.dob);
-        const dateB = new Date(b.dob);
-        return dateA - dateB;
-      });
-    }
-  
-    return sortedData;
+  if (sortOption === 'name') {
+    sortedData.sort((a, b) => a.firstName.localeCompare(b.firstName));
+  } else if (sortOption === 'age') {
+    sortedData.sort((a, b) => {
+      const dateA = new Date(a.dob);
+      const dateB = new Date(b.dob);
+      return dateA.getFullYear() - dateB.getFullYear();
+    });
   }
   
+  return sortedData;
+}
 
+
+
+  
+
+  function updatePersonsData(sortedData) {
+    personsData = sortedData;
+  }
+  
+  // ...
   
   // Event listener for sort select option
   const sortSelect = document.getElementById('sortSelect');
   sortSelect.addEventListener('change', function (event) {
     const selectedOption = event.target.value;
     const sortedData = sortPersonsData(selectedOption);
-    renderPersonsTable(sortedData);
+    updatePersonsData(sortedData); // Update the personsData array
+    renderPersonsTable();
   });
+
+  
+  // Event listener for sort select option
+  // const sortSelect = document.getElementById('sortSelect');
+  // sortSelect.addEventListener('change', function (event) {
+  //   const selectedOption = event.target.value;
+  //   const sortedData = sortPersonsData(selectedOption);
+  //   renderPersonsTable(sortedData);
+  // });
   
 
 
